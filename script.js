@@ -149,15 +149,15 @@ function show(id) {
   fx('tap');
 }
 
-function toast(t) {
-  $('#message').textContent = t;
-  $('#message').classList.add('show');
-  setTimeout(() => $('#message').classList.remove('show'), 2800);
-}
-
 // function toast(t) {
-//   // disabled
+//   $('#message').textContent = t;
+//   $('#message').classList.add('show');
+//   setTimeout(() => $('#message').classList.remove('show'), 2800);
 // }
+
+function toast(t) {
+  // disabled
+}
 
 function initAudio() {
   if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -298,7 +298,7 @@ if (paidReady > 0) {
         .classList.add('paidLayout');
         home.classList.add('paidScreen');
     // $('#home').style.backgroundImage = "url('assets/bought.png')";
-   $('#headline').innerHTML ='<img src="assets/CardAdded.png" class="newCardAddedImageblock"style="width:100%"/>';
+   $('#headline').innerHTML ='<img src="assets/CardAdded.png" class="newCardAddedImageblock"style="width:65%"/>';
     // $('#headline').textContent = 'YOU HAVE 1 NEW CARD!';
     $('#headline').style.display = 'block';
     document.querySelector('.subcopy').textContent = '';

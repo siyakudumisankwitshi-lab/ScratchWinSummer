@@ -22,7 +22,7 @@
 
 .heroHeader{
    position: absolute;
-    top: 345px;
+    top:clamp(220px, 34vh, 345px);
     left: 0px;
     right: -24px;
     z-index: 10;
@@ -70,8 +70,7 @@
     display:none;
 }
 .heroHeader img{
-    width:81%;
-    max-width:340px;
+    width:min(81%,340px);
     height:auto;
     display:block;
 }
@@ -83,8 +82,9 @@ button{cursor:pointer;transition:transform .16s,filter .16s}button:active{transf
 .homeShade{position:absolute;inset:0;
   background:linear-gradient(180deg,transparent 0 50%,rgba(0,0,0,.55) 60%,rgba(0,0,0,.75))
 }
-.cards{position:absolute;left:26px;right:26px;bottom:135px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;z-index:5}
-.miniCard{height:195px;border-radius:14px;border:3px solid var(--red);background:linear-gradient(160deg,#ffd26c,#bd6814);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:800;text-shadow:0 2px 8px #632b00;box-shadow:var(--glow);position:relative;overflow:hidden}.miniCard:before{content:'🎁';font-size:58px;filter:drop-shadow(0 8px 8px #742)}.miniCard:after{content:'';position:absolute;inset:-60%;background:linear-gradient(110deg,transparent 45%,rgba(255,255,255,.7),transparent 55%);transform:translateX(-40%) rotate(8deg);animation:shine 3s infinite}
+.miniCard{
+    height:clamp(140px, 24vh, 195px);
+    border-radius:14px;border:3px solid var(--red);background:linear-gradient(160deg,#ffd26c,#bd6814);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;font-weight:800;text-shadow:0 2px 8px #632b00;box-shadow:var(--glow);position:relative;overflow:hidden}.miniCard:before{content:'🎁';font-size:58px;filter:drop-shadow(0 8px 8px #742)}.miniCard:after{content:'';position:absolute;inset:-60%;background:linear-gradient(110deg,transparent 45%,rgba(255,255,255,.7),transparent 55%);transform:translateX(-40%) rotate(8deg);animation:shine 3s infinite}
 /* .miniCard.used{background:linear-gradient(#d7d7d7,#858585);border-color:#aaa;box-shadow:none;filter:grayscale(1)}
 .miniCard.used:before{opacity:.55}
 .miniCard.used:after{display:none}
@@ -246,7 +246,17 @@ button{cursor:pointer;transition:transform .16s,filter .16s}button:active{transf
   display:none; /* hides the "Used" text if it's already on image */
 }
 .miniCard.pulse{animation:cardPulse 1.4s infinite}@keyframes shine{to{transform:translateX(50%) rotate(8deg)}}@keyframes cardPulse{50%{transform:translateY(-6px);box-shadow:0 0 24px #d1a54e,0 0 10px var(--red)}}
-.bottomCta{position:absolute;left:34px;right:34px;bottom:35px;z-index:10;min-height:70px;border-radius:16px;border:2px solid;background:linear-gradient(#ed251e,#a70000);box-shadow:var(--glow);color:#fff;text-align:left;padding:12px 18px 12px 74px;font-size:14px}
+.bottomCta{
+    position:absolute;
+    left:34px;right:34px;
+    bottom:calc(env(safe-area-inset-bottom, 0px) + 20px);
+    z-index:10;
+    min-height:70px;
+    border-radius:16px;
+    border:2px solid;
+    background:linear-gradient(#ed251e,#a70000);
+    box-shadow:var(--glow);color:#fff;text-align:left;padding:12px 18px 12px 74px;font-size:14px}
+
 .bottomCta span{position:absolute;left:22px;top:18px;font-size:30px}.bottomCta b{display:block;font-size:17px}.bottomCta small{display:block;color:#ffe04b;font-weight:700}
 .hidden{display:none!important}
 .toast{position:absolute;left:24px;right:24px;bottom:18px;z-index:40;background:rgba(0,0,0,.8);border:1px solid rgba(255,255,255,.2);border-radius:14px;padding:14px;text-align:center;transform:translateY(140%);transition:.35s}.toast.show{transform:none}
@@ -329,16 +339,19 @@ button{cursor:pointer;transition:transform .16s,filter .16s}button:active{transf
     position:absolute;
     left:26px;
     right:26px;
-    top:550px;
+    top:clamp(340px, 58vh, 550px);
     z-index:5;
 }
 
 .cards{
-    position:static;
+    position:static;   
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:14px;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:clamp(8px, 2vw, 14px);
 }
+
+/* .cards{position:absolute;left:26px;right:26px;bottom:135px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;z-index:5} */
+
 
 .cardHeader{
     margin-bottom:20px;
@@ -447,16 +460,20 @@ button{cursor:pointer;transition:transform .16s,filter .16s}button:active{transf
 }
 
 .cards.singlePaid{
-    display:flex;
+    /* display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:center; */
     top:300px; 
     left:90px;
 }
 
 .cardSection.paidLayout{
-    top: 295px;
-    left: 195px;
+    position:absolute;
+    /* top:295px; */
+    left:290px;
+    transform:translateX(-50%);
+    top:clamp(180px,32vh,280px);
+    width:min(90vw,430px);
 }
 
 .cardSection.paidLayout .cardHeader{
@@ -475,8 +492,7 @@ button{cursor:pointer;transition:transform .16s,filter .16s}button:active{transf
 }
 .cards.singlePaid .miniCard{
     width:210px;
-    height:340px;
-
+    height:300px;
     border:none;
     border-radius:24px;
     overflow:hidden;
@@ -566,12 +582,17 @@ button{cursor:pointer;transition:transform .16s,filter .16s}button:active{transf
     /* letter-spacing:.5px; */
 }
 
+@media (max-height: 740px) {
+    #scratchNowBar{
+        top: 83%;
+    }
+}
 #scratchNowBar{
     position:absolute;
     width: 190px;
-    left: 72%;
+    left: 70%;
     transform:translateX(-50%);
-    top:80%; 
+    top:clamp(80%, 82%, 85%);
     bottom:auto;
 }
 
@@ -740,3 +761,29 @@ body:before{
     line-height:1.2;
 }
 .screen.active{display:block!important}
+@media (max-height: 700px){
+
+    .heroHeader{
+        top:180px;
+    }
+
+    .cardSection{
+        top:430px;
+    }
+
+    .miniCard{
+        height:140px;
+    }
+
+    .bottomCta{
+        min-height:60px;
+    }
+
+    .bottomCta b{
+        font-size:15px;
+    }
+
+    .bottomCta small{
+        font-size:11px;
+    }
+}
