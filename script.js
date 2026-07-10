@@ -496,12 +496,12 @@ let scratchCount = 0;
 
     const pct = Math.min(
       100,
-      Math.round((scratchCount / 300) * 100)
+      Math.round((scratchCount / 150) * 100)
     );
 
     $('#progressPill').textContent = pct + '%';
 
-    if (scratchCount > 300) {
+    if (scratchCount > 150) {
       finishScratch(ctx, rect.width, rect.height);
     }
 
@@ -673,62 +673,62 @@ $('#claimBtn').textContent = current.win
 //   }
 // }
 
-let fireworks;
+// let fireworks;
 
-function confetti() {
+// function confetti() {
 
-    const container = document.getElementById("fireworks");
+//     const container = document.getElementById("fireworks");
 
-    container.innerHTML = "";
+//     container.innerHTML = "";
 
-fireworks = new Fireworks.default(container, {
-    autoresize: true,
+// fireworks = new Fireworks.default(container, {
+//     autoresize: true,
 
-    opacity: 0.8,
+//     opacity: 0.8,
 
-    acceleration: 1.05,
-    friction: 0.95,
-    gravity: 1.1,
+//     acceleration: 1.05,
+//     friction: 0.95,
+//     gravity: 1.1,
 
-    particles: 150,
-    explosion: 12,
+//     particles: 150,
+//     explosion: 12,
 
-    traceLength: 15,
-    traceSpeed: 8,
+//     traceLength: 15,
+//     traceSpeed: 8,
 
-    intensity: 4,
+//     intensity: 4,
 
-    delay: {
-        min: 1,
-        max: 5
-    },
+//     delay: {
+//         min: 1,
+//         max: 5
+//     },
 
-    brightness: {
-        min: 50,
-        max: 100
-    },
+//     brightness: {
+//         min: 50,
+//         max: 100
+//     },
 
-    decay: {
-        min: 0.01,
-        max: 0.03
-    },
+//     decay: {
+//         min: 0.01,
+//         max: 0.03
+//     },
 
-    rocketsPoint: {
-        min: 20,
-        max: 80
-    }
-});
+//     rocketsPoint: {
+//         min: 20,
+//         max: 80
+//     }
+// });
 
-    fireworks.start();
+//     fireworks.start();
 
-    setTimeout(() => {
-    fireworks.setOptions({
-        intensity: 6,
-        particles: 250,
-        explosion: 25
-    });
-}, 5000);
-}
+//     setTimeout(() => {
+//     fireworks.setOptions({
+//         intensity: 6,
+//         particles: 250,
+//         explosion: 25
+//     });
+// }, 5000);
+// }
 function confirm() {
   show('confirm');
   $('#confirmHero').style.backgroundImage = `url('assets/${current.win ? 'winconfirm' : 'nowinconfirm'}.png')`;
