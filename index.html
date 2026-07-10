@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+<title>Scratch & Win</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app" class="phone">
+    <section id="home" class="screen active">
+
+  <video id="bgVideo" class="bgVideo"
+   autoplay
+    muted loop playsinline>
+    <source src="assets/MoveVid4.mp4" type="video/mp4">
+</video>
+  <!-- <button class="icon back" id="homeBack" aria-label="Back">‹</button> -->
+  <button class="icon back" id="homeBack" aria-label="Back">
+        <img src="assets/BackIcon.webp"/>
+      </button>
+  <button id="soundBtn" class="sound">
+    <!-- <img src="assets/SoundIcon.webp"/> -->
+    Sound
+  </button>
+  <div class="homeShade"></div>
+
+  <div id="statusBadge" class="statusBadge"></div>
+     
+<div class="heroHeader">
+    <img src="assets/SummerHeader5.png" alt="Scratch & Win">
+</div>
+
+    <div class="cardSection">
+    <div class="cardHeader">
+
+         <img src="assets/SummerSubHeader2.webp" id="subHeaderImage" />
+         
+        <h1 id="headline">
+          <!-- CHOOSE A CARD -->
+        </h1>
+        <p class="subcopy">
+          <!-- Scratch to reveal your prize -->
+        </p>
+    </div>
+
+    <div class="cards" id="cardRow"></div>
+</div>
+  <div id="scratchNowBar" 
+  >
+    <span>🎁</span>
+    <img src="assets/ScratchNow.webp" style="width: 130%;"/>
+    <!-- <b>Scratch Now!</b> -->
+    <small id="scratchNowCopy">
+      1 bought card ready, guaranteed win
+    </small>
+  </div>
+
+  <button id="buyBar" class="bottomCta hidden">
+    <span>🎁</span>
+    <b>Buy more Scratches</b>
+    <small id="buyCopy">5 available, buy 1 card for 1VB</small>
+  </button>
+<button id="promoBanner" class="bottomBanner hidden">
+  
+    <img src="assets/BottomBanner.webp"/>
+</button>
+  <div id="message" class="toast"></div>
+  <div id="buyMoreToast" class="buyMoreToast hidden">
+    <div class="buyMoreToast__icon">
+      <img src="assets/gift.webp"/>
+    </div>
+
+    <div class="buyMoreToast__content">
+        <div class="buyMoreToast__title">
+            Buy more scratches
+        </div>
+        <div id="buyMoreToastText" class="buyMoreToast__text"></div>
+    </div>
+</div>
+</section>
+
+    <section id="scratch" class="screen scratchScreen">
+      <button class="icon back" id="backHome" aria-label="Back">
+        <img src="assets/BackIcon.webp"/>
+      </button>
+        <button id="soundBtn" class="sound">
+    <!-- <img src="assets/SoundIcon.webp"/> -->
+    Sound
+  </button>
+      <!-- <button class="icon back" id="backHome" aria-label="Back">‹</button> -->
+      <div class="scratchTitle">
+        <!-- <b>MO SUMMER</b> -->
+         <div class="moSummerHeader">
+          <img src="assets/MoSummer.png"/>
+         </div>
+        <span id="scratchSub">
+          <!-- Scratch to reveal -->
+        </span></div>
+      <div class="scratchWrap" id="scratchWrap">
+        <div id="prizeLayer" class="prizeLayer"></div>
+        <canvas id="scratchCanvas"></canvas>
+        <!-- <div class="scratchHint">SCRATCH HERE<br><small>Reveal. Win. Live More.</small></div> -->
+        <div id="progressPill" class="progressPill">0%</div>
+      </div>
+      <div id="dust"></div>
+    </section>
+
+    <section id="reveal" class="screen revealScreen">
+      <button class="icon back" id="revealBack" aria-label="Back">‹</button>
+      <div id="resultCard" class="resultCard">
+        <!-- <p class="season">MO SUMMER</p> -->
+        <img src="assets/Congrats.webp" id="resultImage" style="width: 85%;"/>
+        <!-- <h1 id="resultHeadline">CONGRATS</h1>
+        <h2 id="resultSubline">You've Won</h2> -->
+        <button id="claimBtn" class="primaryBtn">Claim Prize</button>
+      </div>
+      <!-- <div id="confetti"></div> -->
+    <div id="fireworks"></div>
+    </section>
+
+    <section id="confirm" class="screen confirmScreen">
+      <button class="icon back" id="confirmBack" aria-label="Back">
+        <img src="assets/BackIcon.webp"/>
+      </button>
+      <div 
+      
+       id="closeConfirm" aria-label="Close">
+        
+    </div>
+      <div class="topbar">V-Up rewards</div>
+      <div id="confirmHero" class="confirmHero"></div>
+      <div class="confirmPanel">
+        <h2 id="confirmTitle">Congratulations!</h2>
+        <p id="confirmCopy">You've won a free reward. Your voucher will be sent via SMS shortly.</p>
+        <button class="linkBtn">View reward</button>
+      </div>
+      <div class="upsell">
+        <h3 id="upsellTitle">Want to upsize?</h3>
+        <button>100MIN for 30 days <b>R50</b> ›</button>
+        <button>2GB for 14 days <b>R49</b> ›</button>
+        <button>60MIN for 1 day <b>R12</b> ›</button>
+      </div>
+      <button id="nextCardBtn" class="moreCard">Continue<br><b id="remainingCopy">2 FREE scratch cards left</b> ›</button>
+    </section>
+
+    <section id="timer" class="screen timerScreen">
+      <button class="icon back" id="timerBack" aria-label="Back">‹</button>
+      <div style="margin-top: -55px;">
+        <img src="assets/SummerHeader5.png" style="width: 100%;"/>
+      </div>
+      
+      <!-- <h1>NO CARDS<br>LEFT FOR TODAY</h1>
+      <p>Get 3 fresh scratch cards <b>TOMORROW</b></p> -->
+      <div class="countBox"><small>FREE CARDS AVAILABLE IN</small><div id="countdown">-- : -- : --</div><span>HOURS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MINUTES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SECONDS</span></div>
+      <button id="historyBtn" class="bottomCta history"><span>🎁</span><b>View Rewards History</b></button>
+    </section>
+
+    <section id="history" class="screen historyScreen">
+      <button class="icon back" id="historyBack" aria-label="Back">‹</button>
+      <div class="topbar">Rewards history</div>
+      <h1>Today’s Scratch Results</h1>
+      <p class="historyIntro">Wins and no wins are shown here for today.</p>
+      <div id="historyList" class="historyList"></div>
+    </section>
+
+    <section id="rewardsHome" class="screen rewardsHome">
+      <button class="icon back" id="rewardsBack" aria-label="Back">‹</button>
+      <div class="topbar">V-Up rewards</div>
+      <div class="rewardHomeCard">
+        <h1>Rewards Home</h1>
+        <p>Your Scratch & Win cards are complete for today.</p>
+        <button id="rewardHomeHistory" class="primaryBtn">View Rewards History</button>
+      </div>
+    </section>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2/dist/index.umd.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
